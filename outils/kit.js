@@ -5,3 +5,6 @@ const countdown=(start=0.2)=>`<div class="cd">${[3,2,1].map((n,i)=>`<div class="
 const bell=`<svg class="a p" data-d="0" width="150" height="170" viewBox="0 0 170 190"><path d="M85,18 C45,18 30,52 30,88 V128 L12,152 H158 L140,128 V88 C140,52 125,18 85,18 Z" fill="#E8C97A"/><circle cx="85" cy="12" r="10" fill="#E8C97A"/><path d="M63,162 Q85,192 107,162 Z" fill="#C9A84C"/><circle cx="140" cy="40" r="26" fill="#FC8C00"/></svg>`;
 const outro={dur:3,html:`${bell}<div class="gap"></div><div class="a p h" data-d="0.25">Abonne-toi</div><div class="a m gold" data-d="0.5">et active les notifs</div><div class="gap"></div><div class="a xs" data-d="0.8">E-book gratuit en bio</div>`};
 module.exports={opt,tag,countdown,outro};
+// outro avec rendez-vous (ajouté le 28/10) : outroNext('Demain : le prochain défi')
+const outroNext=(line)=>({dur:3.2,html:`${bell}<div class="gap"></div><div class="a p h" data-d="0.25">Abonne-toi</div><div class="a m gold" data-d="0.5">${line}</div><div class="gap"></div><div class="a xs" data-d="0.8">E-book gratuit en bio</div>`});
+module.exports.outroNext=outroNext;
