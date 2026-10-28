@@ -1,0 +1,147 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:P;src:url(file:///usr/share/fonts/truetype/google-fonts/Poppins-Regular.ttf);font-weight:400}
+@font-face{font-family:P;src:url(file:///usr/share/fonts/truetype/google-fonts/Poppins-Medium.ttf);font-weight:500}
+@font-face{font-family:P;src:url(file:///usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf);font-weight:700}
+@font-face{font-family:P;src:url(file:///usr/share/fonts/truetype/google-fonts/Poppins-Light.ttf);font-weight:300}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#060607}
+body{font-family:P,'FreeSans',sans-serif;color:#F4F1EA}
+#bg{position:absolute;inset:0;background:radial-gradient(ellipse 900px 700px at 50% 42%,rgba(201,168,76,.16),transparent 70%),linear-gradient(180deg,#0C0C0D,#060607)}
+#grid{position:absolute;inset:-100px;background-image:linear-gradient(rgba(201,168,76,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.05) 1px,transparent 1px);background-size:90px 90px}
+#kicker{position:absolute;top:230px;left:0;right:0;text-align:center;font-weight:700;letter-spacing:14px;font-size:30px;color:#C9A84C}
+#kicker:after{content:"";display:block;width:70px;height:3px;background:#FC8C00;margin:18px auto 0}
+#bar{position:absolute;bottom:300px;left:120px;right:120px;height:5px;background:rgba(255,255,255,.08);border-radius:3px}
+#barfill{height:100%;background:linear-gradient(90deg,#C9A84C,#FC8C00);border-radius:3px;width:0}
+.scene{position:absolute;left:90px;right:90px;top:360px;bottom:360px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;opacity:0}
+.a{opacity:0}
+.big{font-weight:700;font-size:150px;line-height:1;color:#E8C97A;letter-spacing:-3px}
+.h{font-weight:700;font-size:84px;line-height:1.12;letter-spacing:-1px}
+.m{font-weight:500;font-size:56px;line-height:1.25}
+.s{font-weight:400;font-size:44px;line-height:1.4;color:#CFC9BC}
+.xs{font-weight:300;font-size:30px;color:#8E887C}
+.gold{color:#E8C97A}.or{color:#FC8C00}
+.gap{height:44px}.gap2{height:24px}
+.pill{display:inline-block;border:2px solid #C9A84C;color:#E8C97A;border-radius:60px;padding:14px 40px;font-weight:600;font-size:40px}
+.quote{font-weight:300;font-style:normal;font-size:70px;line-height:1.25}
+svg{display:block;margin:0 auto}
+.opt{display:flex;align-items:center;gap:30px;width:880px;margin:16px 0;padding:30px 40px;border:2px solid rgba(201,168,76,.5);border-radius:26px;background:rgba(201,168,76,.06);text-align:left;font-weight:600;font-size:52px;transition:none}
+.opt b{display:inline-flex;align-items:center;justify-content:center;min-width:76px;height:76px;border-radius:50%;background:#C9A84C;color:#060607;font-size:42px}
+.opt.on{background:linear-gradient(90deg,#C9A84C,#E8C97A);color:#060607;border-color:#E8C97A}
+.opt.on b{background:#060607;color:#E8C97A}
+.opt.off{opacity:.3}
+.win{position:absolute;left:0;right:0;opacity:0}
+.cd{position:relative;height:300px;width:100%}
+
+#masc{position:absolute;left:40px;top:1235px;width:330px;height:330px;z-index:5}
+#bubble{position:absolute;left:380px;right:60px;top:1270px;min-height:150px;z-index:5;background:rgba(232,201,122,.12);border:2px solid rgba(232,201,122,.55);border-radius:36px;padding:30px 36px;font-family:P;font-weight:600;font-size:42px;line-height:1.25;color:#F4F1EA;display:flex;align-items:center;opacity:0}
+#bubble:before{content:"";position:absolute;left:-26px;top:60px;border-width:16px 26px 16px 0;border-style:solid;border-color:transparent rgba(232,201,122,.55) transparent transparent}
+#bubble b{color:#FC8C00;font-weight:700}
+.scene{bottom:720px !important;top:330px !important}
+</style></head><body>
+<div id="bg"></div><div id="grid"></div>
+<div id="kicker">TRADE INVEST</div>
+<div id="scenes"></div><div id="masc"><svg id="bull" viewBox="0 0 400 400" width="330" height="330" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6E3A6"/><stop offset=".55" stop-color="#E8C97A"/><stop offset="1" stop-color="#C9A84C"/></linearGradient>
+<linearGradient id="gHorn" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB347"/><stop offset="1" stop-color="#FC8C00"/></linearGradient>
+<linearGradient id="gSuit" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c1c20"/><stop offset="1" stop-color="#0C0C0D"/></linearGradient>
+</defs>
+<g id="bodyg">
+<!-- costume -->
+<path d="M70,400 C70,320 120,290 200,290 C280,290 330,320 330,400 Z" fill="url(#gSuit)" stroke="#C9A84C" stroke-width="4"/>
+<path d="M170,292 L200,345 L230,292 Z" fill="#F4F1EA"/>
+<path d="M192,300 L208,300 L214,350 L200,372 L186,350 Z" fill="#FC8C00"/>
+<g id="head">
+<!-- cornes -->
+<path d="M110,120 C70,110 45,80 50,40 C75,70 100,80 130,88 Z" fill="url(#gHorn)"/>
+<path d="M290,120 C330,110 355,80 350,40 C325,70 300,80 270,88 Z" fill="url(#gHorn)"/>
+<!-- oreilles -->
+<ellipse cx="92" cy="150" rx="34" ry="18" transform="rotate(-20 92 150)" fill="#C9A84C"/>
+<ellipse cx="308" cy="150" rx="34" ry="18" transform="rotate(20 308 150)" fill="#C9A84C"/>
+<!-- tête -->
+<path d="M120,95 C150,70 250,70 280,95 C305,120 305,200 290,235 C275,275 245,295 200,295 C155,295 125,275 110,235 C95,200 95,120 120,95 Z" fill="url(#gGold)"/>
+<!-- touffe -->
+<path d="M170,82 C180,62 192,72 200,58 C208,72 220,62 230,82 C215,90 185,90 170,82 Z" fill="#C9A84C"/>
+<!-- yeux -->
+<g id="eyes">
+<ellipse cx="160" cy="160" rx="22" ry="26" fill="#fff"/><ellipse cx="240" cy="160" rx="22" ry="26" fill="#fff"/>
+<circle cx="164" cy="164" r="12" fill="#0C0C0D"/><circle cx="236" cy="164" r="12" fill="#0C0C0D"/>
+<circle cx="168" cy="158" r="4" fill="#fff"/><circle cx="240" cy="158" r="4" fill="#fff"/>
+</g>
+<g id="lids" style="display:none"><path d="M138,160 Q160,172 182,160" stroke="#6b4a12" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M218,160 Q240,172 262,160" stroke="#6b4a12" stroke-width="6" fill="none" stroke-linecap="round"/></g>
+<!-- sourcils -->
+<path d="M140,124 Q160,114 180,124" stroke="#6b4a12" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M220,124 Q240,114 260,124" stroke="#6b4a12" stroke-width="7" fill="none" stroke-linecap="round"/>
+<!-- museau -->
+<ellipse cx="200" cy="238" rx="66" ry="44" fill="#F6E3A6" stroke="#C9A84C" stroke-width="3"/>
+<ellipse cx="178" cy="226" rx="8" ry="11" fill="#6b4a12"/><ellipse cx="222" cy="226" rx="8" ry="11" fill="#6b4a12"/>
+<path id="mouthC" d="M180,258 Q200,272 220,258" stroke="#6b4a12" stroke-width="6" fill="none" stroke-linecap="round"/>
+<ellipse id="mouthO" cx="200" cy="262" rx="16" ry="11" fill="#6b4a12" style="display:none"/>
+</g>
+</g>
+</svg>
+</div><div id="bubble"></div>
+<div id="bar"><div id="barfill"></div></div>
+<script>
+let SAYS=[];
+function mascUpdate(t){
+  const m=document.getElementById('masc');if(!m)return;
+  m.style.transform=`translateY(${6*Math.sin(t*2.2)}px)`;
+  document.getElementById('head').style.transform=`rotate(${2.5*Math.sin(t*1.3)}deg)`;document.getElementById('head').style.transformOrigin='200px 290px';
+  const bl=(t%3.4)<0.13;document.getElementById('eyes').style.display=bl?'none':'';document.getElementById('lids').style.display=bl?'':'none';
+  let k=-1;for(let i=0;i<SC.length;i++){if(t>=SC[i].start&&t<SC[i].start+SC[i].dur)k=i;}
+  const bub=document.getElementById('bubble');
+  if(k<0){bub.style.opacity=0;return;}
+  const lt=t-SC[k].start,say=SAYS[k]||'';
+  if(!say){bub.style.opacity=0;}else{bub.innerHTML="<span>"+say+"</span>";const p=Math.min(1,lt/0.25);bub.style.opacity=p;bub.style.transform=`scale(${0.85+0.15*p})`;bub.style.transformOrigin='0 50%';}
+  const talk=say&&lt<Math.min(1.6,SC[k].dur-0.3);const open=talk&&Math.floor(lt/0.13)%2===0;
+  document.getElementById('mouthO').style.display=open?'':'none';document.getElementById('mouthC').style.display=open?'none':'';
+}
+
+const ease=p=>1-Math.pow(1-p,3);
+const cl=x=>Math.max(0,Math.min(1,x));
+let SC=[],TOTAL=0;
+function setup(cfg){
+  const root=document.getElementById('scenes');
+  let t0=0;
+  cfg.scenes.forEach(s=>{const d=document.createElement('div');d.className='scene';d.innerHTML=s.html;root.appendChild(d);SC.push({el:d,start:t0,dur:s.dur});t0+=s.dur;});
+  TOTAL=t0;
+  SAYS=cfg.scenes.map(x=>x.say||"");
+  if(cfg.noBar) document.getElementById('bar').style.display='none';
+  return TOTAL;
+}
+function fmt(v,dec,sep){let s=v.toFixed(dec).replace('.',',');let [i,f]=s.split(',');i=i.replace(/\B(?=(\d{3})+(?!\d))/g,' ');return f?i+','+f:i}
+function render(t){
+  mascUpdate(t);
+  document.getElementById('grid').style.transform=`translateY(${-(t*6)%90}px)`;
+  document.getElementById('bg').style.transform=`scale(${1+0.04*Math.sin(t/4)})`;
+  document.getElementById('barfill').style.width=(cl(t/TOTAL)*100)+'%';
+  SC.forEach((s,i)=>{
+    const lt=t-s.start;
+    const first=i===0,last=i===SC.length-1;
+    let o=0;
+    if(lt>=0&&lt<s.dur){o=1; if(!first) o=Math.min(o,cl(lt/0.12)); if(!last) o=Math.min(o,cl((s.dur-lt)/0.12));}
+    s.el.style.opacity=o;
+    s.el.style.transform=`scale(${1+0.025*cl(lt/s.dur)})`;
+    if(o<=0)return;
+    s.el.querySelectorAll('.a').forEach(e=>{
+      const d=parseFloat(e.dataset.d||0);const p=ease(cl((lt-d)/0.3));
+      e.style.opacity=p;e.style.transform=e.classList.contains("p")?`scale(${1+0.6*(1-p)})`:`translateY(${(1-p)*60}px)`;
+    });
+    s.el.querySelectorAll('[data-from]').forEach(e=>{
+      const d=parseFloat(e.dataset.cd||0),dur=parseFloat(e.dataset.cdur||1.2);
+      const p=ease(cl((lt-d)/dur));const v=+e.dataset.from+(+e.dataset.to-+e.dataset.from)*p;
+      e.textContent=(e.dataset.pre||'')+fmt(v,+(e.dataset.dec||0))+(e.dataset.suf||'');
+    });
+    s.el.querySelectorAll('[data-on]').forEach(e=>e.classList.toggle('on',lt>=+e.dataset.on));
+    s.el.querySelectorAll('[data-off]').forEach(e=>e.classList.toggle('off',lt>=+e.dataset.off));
+    s.el.querySelectorAll('[data-win]').forEach(e=>{const [a,b]=e.dataset.win.split(',').map(Number);const v=lt>=a&&lt<b;const p=v?ease(cl((lt-a)/0.2)):0;e.style.opacity=v?1:0;e.style.transform=`scale(${1.5-0.5*p})`;});
+    s.el.querySelectorAll('[data-draw]').forEach(e=>{
+      const d=parseFloat(e.dataset.draw);const L=+e.dataset.len;const p=ease(cl((lt-d)/1.3));
+      e.style.strokeDasharray=L;e.style.strokeDashoffset=L*(1-p);
+    });
+  });
+}
+</script></body></html>
