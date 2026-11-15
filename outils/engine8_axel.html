@@ -1,0 +1,158 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:P;src:url(file:///usr/share/fonts/truetype/google-fonts/Poppins-Regular.ttf);font-weight:400}
+@font-face{font-family:P;src:url(file:///usr/share/fonts/truetype/google-fonts/Poppins-Medium.ttf);font-weight:500}
+@font-face{font-family:P;src:url(file:///usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf);font-weight:700}
+@font-face{font-family:P;src:url(file:///usr/share/fonts/truetype/google-fonts/Poppins-Light.ttf);font-weight:300}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#060607}
+body{font-family:P,'FreeSans',sans-serif;color:#F4F1EA}
+#bg{position:absolute;inset:0;background:radial-gradient(ellipse 900px 700px at 50% 42%,rgba(201,168,76,.16),transparent 70%),linear-gradient(180deg,#0C0C0D,#060607)}
+#grid{position:absolute;inset:-100px;background-image:linear-gradient(rgba(201,168,76,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.05) 1px,transparent 1px);background-size:90px 90px}
+#kicker{position:absolute;top:230px;left:0;right:0;text-align:center;font-weight:700;letter-spacing:14px;font-size:30px;color:#C9A84C}
+#kicker:after{content:"";display:block;width:70px;height:3px;background:#FC8C00;margin:18px auto 0}
+#bar{position:absolute;bottom:300px;left:120px;right:120px;height:5px;background:rgba(255,255,255,.08);border-radius:3px}
+#barfill{height:100%;background:linear-gradient(90deg,#C9A84C,#FC8C00);border-radius:3px;width:0}
+.scene{position:absolute;left:90px;right:90px;top:360px;bottom:360px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;opacity:0}
+.a{opacity:0}
+.big{font-weight:700;font-size:150px;line-height:1;color:#E8C97A;letter-spacing:-3px}
+.h{font-weight:700;font-size:84px;line-height:1.12;letter-spacing:-1px}
+.m{font-weight:500;font-size:56px;line-height:1.25}
+.s{font-weight:400;font-size:44px;line-height:1.4;color:#CFC9BC}
+.xs{font-weight:300;font-size:30px;color:#8E887C}
+.gold{color:#E8C97A}.or{color:#FC8C00}
+.gap{height:44px}.gap2{height:24px}
+.pill{display:inline-block;border:2px solid #C9A84C;color:#E8C97A;border-radius:60px;padding:14px 40px;font-weight:600;font-size:40px}
+.quote{font-weight:300;font-style:normal;font-size:70px;line-height:1.25}
+svg{display:block;margin:0 auto}
+.opt{display:flex;align-items:center;gap:30px;width:880px;margin:16px 0;padding:30px 40px;border:2px solid rgba(201,168,76,.5);border-radius:26px;background:rgba(201,168,76,.06);text-align:left;font-weight:600;font-size:52px;transition:none}
+.opt b{display:inline-flex;align-items:center;justify-content:center;min-width:76px;height:76px;border-radius:50%;background:#C9A84C;color:#060607;font-size:42px}
+.opt.on{background:linear-gradient(90deg,#C9A84C,#E8C97A);color:#060607;border-color:#E8C97A}
+.opt.on b{background:#060607;color:#E8C97A}
+.opt.off{opacity:.3}
+.win{position:absolute;left:0;right:0;opacity:0}
+.cd{position:relative;height:300px;width:100%}
+
+#masc{position:absolute;left:40px;top:1235px;width:330px;height:330px;z-index:5}
+#bubble{position:absolute;left:380px;right:60px;top:1270px;min-height:150px;z-index:5;background:rgba(232,201,122,.12);border:2px solid rgba(232,201,122,.55);border-radius:36px;padding:30px 36px;font-family:P;font-weight:600;font-size:42px;line-height:1.25;color:#F4F1EA;display:flex;align-items:center;opacity:0}
+#bubble:before{content:"";position:absolute;left:-26px;top:60px;border-width:16px 26px 16px 0;border-style:solid;border-color:transparent rgba(232,201,122,.55) transparent transparent}
+#bubble b{color:#FC8C00;font-weight:700}
+.scene{bottom:720px !important;top:330px !important}
+</style></head><body>
+<div id="bg"></div><div id="grid"></div>
+<div id="kicker">TRADE INVEST</div>
+<div id="scenes"></div><div id="masc"><svg id="axel" viewBox="0 0 400 400" width="340" height="340" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="aSkin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6D7BC"/><stop offset="1" stop-color="#E9BC98"/></linearGradient>
+<linearGradient id="aHair" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a3627"/><stop offset="1" stop-color="#2b1f17"/></linearGradient>
+<linearGradient id="aShirt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c1c20"/><stop offset="1" stop-color="#0C0C0D"/></linearGradient>
+</defs>
+<g id="bodyg">
+<!-- cou -->
+<path d="M172,270 L172,312 L228,312 L228,270 Z" fill="#E2B08A"/>
+<path d="M172,276 Q200,296 228,276 L228,290 Q200,304 172,290 Z" fill="#C9926B" opacity=".45"/>
+<!-- chemise noire -->
+<path d="M60,400 C62,330 110,300 170,296 L200,330 L230,296 C290,300 338,330 340,400 Z" fill="url(#aShirt)" stroke="#C9A84C" stroke-width="4"/>
+<!-- col -->
+<path d="M170,294 L150,312 L186,350 L200,330 Z" fill="#232328" stroke="#3a3a40" stroke-width="2"/>
+<path d="M230,294 L250,312 L214,350 L200,330 Z" fill="#232328" stroke="#3a3a40" stroke-width="2"/>
+<circle cx="200" cy="356" r="4" fill="#3a3a40"/><circle cx="200" cy="384" r="4" fill="#3a3a40"/>
+<g id="head">
+<!-- oreilles -->
+<ellipse cx="118" cy="182" rx="15" ry="26" fill="#E7B992"/><ellipse cx="282" cy="182" rx="15" ry="26" fill="#E7B992"/>
+<path d="M118,170 Q112,182 120,196" stroke="#C9926B" stroke-width="3" fill="none"/><path d="M282,170 Q288,182 280,196" stroke="#C9926B" stroke-width="3" fill="none"/>
+<!-- visage ovale allongé -->
+<path d="M200,62 C252,62 280,96 282,150 C284,200 274,240 252,264 C236,282 220,290 200,290 C180,290 164,282 148,264 C126,240 116,200 118,150 C120,96 148,62 200,62 Z" fill="url(#aSkin)"/>
+<!-- barbe de 3 jours -->
+<path d="M126,200 C130,236 150,272 176,284 C188,289 212,289 224,284 C250,272 270,236 274,200 C268,232 252,258 232,268 C218,262 182,262 168,268 C148,258 132,232 126,200 Z" fill="#6b5546" opacity=".16"/>
+<path d="M176,236 C186,230 214,230 224,236 C214,240 186,240 176,236 Z" fill="#6b5546" opacity=".3"/>
+<!-- cheveux courts plaqués en arrière, front dégagé -->
+<path d="M122,148 C116,96 146,56 200,54 C254,56 284,96 278,148 C274,128 268,112 258,104 C246,92 226,96 214,90 C200,84 186,90 170,92 C152,96 140,108 134,124 C128,132 126,140 122,148 Z" fill="url(#aHair)"/>
+<path d="M150,82 C170,70 220,66 250,84" stroke="#5c4433" stroke-width="3" fill="none" opacity=".7"/>
+<!-- côtés courts -->
+<path d="M122,150 C121,136 124,124 132,116 L134,160 C128,158 124,156 122,150 Z" fill="#3a2a1f" opacity=".85"/>
+<path d="M278,150 C279,136 276,124 268,116 L266,160 C272,158 276,156 278,150 Z" fill="#3a2a1f" opacity=".85"/>
+<!-- sourcils -->
+<path d="M146,148 Q164,140 184,146" stroke="#2b1f17" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M216,146 Q236,140 254,148" stroke="#2b1f17" stroke-width="7" fill="none" stroke-linecap="round"/>
+<!-- yeux -->
+<g id="eyes">
+<path d="M148,170 Q166,158 184,170 Q166,180 148,170 Z" fill="#fff"/><path d="M216,170 Q234,158 252,170 Q234,180 216,170 Z" fill="#fff"/>
+<circle cx="166" cy="170" r="7.5" fill="#5a4a2e"/><circle cx="234" cy="170" r="7.5" fill="#5a4a2e"/>
+<circle cx="166" cy="170" r="3.6" fill="#0C0C0D"/><circle cx="234" cy="170" r="3.6" fill="#0C0C0D"/>
+<circle cx="168.5" cy="167.5" r="1.8" fill="#fff"/><circle cx="236.5" cy="167.5" r="1.8" fill="#fff"/>
+<path d="M148,170 Q166,158 184,170" stroke="#2b1f17" stroke-width="2.5" fill="none"/><path d="M216,170 Q234,158 252,170" stroke="#2b1f17" stroke-width="2.5" fill="none"/>
+</g>
+<g id="lids" style="display:none"><path d="M148,170 Q166,176 184,170" stroke="#2b1f17" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M216,170 Q234,176 252,170" stroke="#2b1f17" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+<!-- nez -->
+<path d="M200,176 L196,212 Q200,218 208,214" stroke="#C9926B" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<!-- bouche (sourire léger) -->
+<path id="mouthC" d="M180,246 Q200,254 220,246" stroke="#9c5f4a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<ellipse id="mouthO" cx="200" cy="248" rx="13" ry="9" fill="#7a3b2e" style="display:none"/>
+</g>
+</g>
+</svg>
+</div><div id="bubble"></div>
+<div id="bar"><div id="barfill"></div></div>
+<script>
+let SAYS=[];
+function mascUpdate(t){
+  const m=document.getElementById('masc');if(!m)return;
+  m.style.transform=`translateY(${6*Math.sin(t*2.2)}px)`;
+  document.getElementById('head').style.transform=`rotate(${2.5*Math.sin(t*1.3)}deg)`;document.getElementById('head').style.transformOrigin='200px 290px';
+  const bl=(t%3.4)<0.13;document.getElementById('eyes').style.display=bl?'none':'';document.getElementById('lids').style.display=bl?'':'none';
+  let k=-1;for(let i=0;i<SC.length;i++){if(t>=SC[i].start&&t<SC[i].start+SC[i].dur)k=i;}
+  const bub=document.getElementById('bubble');
+  if(k<0){bub.style.opacity=0;return;}
+  const lt=t-SC[k].start,say=SAYS[k]||'';
+  if(!say){bub.style.opacity=0;}else{bub.innerHTML="<span>"+say+"</span>";const p=Math.min(1,lt/0.25);bub.style.opacity=p;bub.style.transform=`scale(${0.85+0.15*p})`;bub.style.transformOrigin='0 50%';}
+  const talk=say&&lt<Math.min(1.6,SC[k].dur-0.3);const open=talk&&Math.floor(lt/0.13)%2===0;
+  document.getElementById('mouthO').style.display=open?'':'none';document.getElementById('mouthC').style.display=open?'none':'';
+}
+
+const ease=p=>1-Math.pow(1-p,3);
+const cl=x=>Math.max(0,Math.min(1,x));
+let SC=[],TOTAL=0;
+function setup(cfg){
+  const root=document.getElementById('scenes');
+  let t0=0;
+  cfg.scenes.forEach(s=>{const d=document.createElement('div');d.className='scene';d.innerHTML=s.html;root.appendChild(d);SC.push({el:d,start:t0,dur:s.dur});t0+=s.dur;});
+  TOTAL=t0;
+  SAYS=cfg.scenes.map(x=>x.say||"");
+  if(cfg.noBar) document.getElementById('bar').style.display='none';
+  return TOTAL;
+}
+function fmt(v,dec,sep){let s=v.toFixed(dec).replace('.',',');let [i,f]=s.split(',');i=i.replace(/\B(?=(\d{3})+(?!\d))/g,' ');return f?i+','+f:i}
+function render(t){
+  mascUpdate(t);
+  document.getElementById('grid').style.transform=`translateY(${-(t*6)%90}px)`;
+  document.getElementById('bg').style.transform=`scale(${1+0.04*Math.sin(t/4)})`;
+  document.getElementById('barfill').style.width=(cl(t/TOTAL)*100)+'%';
+  SC.forEach((s,i)=>{
+    const lt=t-s.start;
+    const first=i===0,last=i===SC.length-1;
+    let o=0;
+    if(lt>=0&&lt<s.dur){o=1; if(!first) o=Math.min(o,cl(lt/0.12)); if(!last) o=Math.min(o,cl((s.dur-lt)/0.12));}
+    s.el.style.opacity=o;
+    s.el.style.transform=`scale(${1+0.025*cl(lt/s.dur)})`;
+    if(o<=0)return;
+    s.el.querySelectorAll('.a').forEach(e=>{
+      const d=parseFloat(e.dataset.d||0);const p=ease(cl((lt-d)/0.3));
+      e.style.opacity=p;e.style.transform=e.classList.contains("p")?`scale(${1+0.6*(1-p)})`:`translateY(${(1-p)*60}px)`;
+    });
+    s.el.querySelectorAll('[data-from]').forEach(e=>{
+      const d=parseFloat(e.dataset.cd||0),dur=parseFloat(e.dataset.cdur||1.2);
+      const p=ease(cl((lt-d)/dur));const v=+e.dataset.from+(+e.dataset.to-+e.dataset.from)*p;
+      e.textContent=(e.dataset.pre||'')+fmt(v,+(e.dataset.dec||0))+(e.dataset.suf||'');
+    });
+    s.el.querySelectorAll('[data-on]').forEach(e=>e.classList.toggle('on',lt>=+e.dataset.on));
+    s.el.querySelectorAll('[data-off]').forEach(e=>e.classList.toggle('off',lt>=+e.dataset.off));
+    s.el.querySelectorAll('[data-win]').forEach(e=>{const [a,b]=e.dataset.win.split(',').map(Number);const v=lt>=a&&lt<b;const p=v?ease(cl((lt-a)/0.2)):0;e.style.opacity=v?1:0;e.style.transform=`scale(${1.5-0.5*p})`;});
+    s.el.querySelectorAll('[data-draw]').forEach(e=>{
+      const d=parseFloat(e.dataset.draw);const L=+e.dataset.len;const p=ease(cl((lt-d)/1.3));
+      e.style.strokeDasharray=L;e.style.strokeDashoffset=L*(1-p);
+    });
+  });
+}
+</script></body></html>
